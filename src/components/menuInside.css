@@ -1,0 +1,36 @@
+.menuInside {
+    background-color: #f2f2f2;
+    width: 25%;
+    border-radius: 10px;
+}
+
+.menuInside ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuInside ul li {
+    font-size: 18px;
+    margin: 50px auto 50px;
+}
+
+.menuInside ul a {
+    text-decoration: none;
+    color: black;
+}
+
+.menuInside ul a:hover {
+    color: #58be91;
+    font-weight: 400;
+}
+
+.menuInside ul .active {
+    color: #58be91;
+    font-weight: 400;
+}
+
+.menuInside ul .noActive {
+    font-weight: 200;
+    color: black;
+}
