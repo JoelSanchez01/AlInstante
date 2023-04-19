@@ -1,9 +1,10 @@
-import React from "react";
+import HeaderInside from "@/components/header";
 
 function InsidePage() {
   return (
     <div>
-      <h1>Inside Page</h1>
+      <HeaderInside />
+      <h2>Hola</h2>
     </div>
   );
 }
