@@ -12,13 +12,13 @@ function MenuInside() {
     <div className="menuInside">
       <ul>
         <li>
-          <Link href="/inside">Noticias</Link>
+          <Link href="/viewNews">Noticias</Link>
         </li>
         <li>
-          <Link href="/inside">Crear Noticias</Link>
+          <Link href="/upload">Crear Noticias</Link>
         </li>
         <li>
-          <Link href="/inside">Salir</Link>
+          <Link href="/login">Salir</Link>
         </li>
       </ul>
     </div>
