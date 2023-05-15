@@ -1,0 +1,15 @@
+.main-news {
+    display: flex;
+    justify-content: center;
+}
+
+.news-view-frame {
+    padding: 10px;
+    margin: 0 30px;
+    background-color: #F2F2F2;
+    display: inline-block;
+    align-items: center;
+    width: 60%;
+    border-radius: 10px;
+
+}
