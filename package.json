@@ -1,18 +1,29 @@
 {
-  "name": "alinstante",
-  "version": "0.1.0",
-  "private": true,
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "next": "13.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@types/node": "^18.0.6",
+    "cloudinary": "^1.36.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "fs-extra": "^11.1.1",
+    "mongodb": "^5.3.0",
+    "mongoose": "^7.0.4",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.2.6"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
