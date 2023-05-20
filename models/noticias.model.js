@@ -5,7 +5,7 @@ const noticiaSchema = mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    unique: true
+    unique: false
   },
   tipoNoticia: {
     type: String,
