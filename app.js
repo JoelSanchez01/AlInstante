@@ -1,18 +1,19 @@
-import express from 'express'
-import morgan from 'morgan'
-import cors from 'cors'
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
 
-import indexRoutes from './routes/index.routes.js'
-import noticiasRoutes from './routes/noticias.routes.js'
+import indexRoutes from "./routes/index.routes.js";
+import usersRoutes from "./routes/user.routes.js";
+import noticiasRoutes from "./routes/noticias.routes.js";
 
-const app = express()
+const app = express();
 
-app.use(cors())
-app.use(morgan('dev'))
-app.use(express.json())
+app.use(cors());
+app.use(morgan("dev"));
+app.use(express.json());
 
+app.use(indexRoutes);
+app.use(usersRoutes);
+app.use(noticiasRoutes);
 
-app.use(indexRoutes)
-app.use(noticiasRoutes)
-
-export default app
+export default app;
