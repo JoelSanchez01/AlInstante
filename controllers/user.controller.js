@@ -45,7 +45,7 @@ export const deleteUsers = async(req, res) => {
     const user = await User.findByIdAndDelete(req.params.id)  
   
     if(!user) return res.status(404).json({
-    message: 'Product does not exist'
+    message: 'User does not exist'
   })
 
   return res.json(user)
@@ -60,7 +60,7 @@ export const getUser = async(req, res) => {
   const user = await User.findById(req.params.id)  
 
   if (!user) return res.status(404).json({
-    message: 'Product does not exist'
+    message: 'User does not exist'
   })
 
   return res.json(user)
