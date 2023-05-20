@@ -89,12 +89,31 @@ export const getNoticia = async (req, res) => {
 export const updateNoticias = async (req, res) => {
   try {
     const { id } = req.params;
+    const noticia = await Noticia.findById(req.params.id);
+    
+    if (noticia.image?.public_id) {
+      await deleteImage(noticia.image.public_id);
+    }
+
+    if (req.files?.image) {
+      const result = await uploadImage(req.files.image.tempFilePath);
+      noticia.image = {
+        public_id: result.public_id,
+        secure_url: result.secure_url,
+      };
+      console.log(noticia.image);
+      await fs.unlink(req.files.image.tempFilePath);
+    }
+
+    await noticia.save();
+
     const noticiaUpdated = await Noticia.findByIdAndUpdate(id, req.body, {
       new: true,
     });
-
     return res.json(noticiaUpdated);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
+
+

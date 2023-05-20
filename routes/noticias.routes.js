@@ -14,7 +14,8 @@ router.get('/noticias', getNoticias)
 router.post('/noticias', fileUpload({ useTempFiles :
   true, tempFileDir : './uploads'}), createNoticias)
 
-router.put('/noticias/:id', updateNoticias)
+router.put('/noticias/:id', fileUpload({ useTempFiles :
+  true, tempFileDir : './uploads'}), updateNoticias)
 
 router.delete('/noticias/:id', deleteNoticias)
 
