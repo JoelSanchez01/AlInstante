@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 function MenuInside() {
   const pathname = usePathname();
 
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <div className="menuInside">

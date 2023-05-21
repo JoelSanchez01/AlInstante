@@ -3,12 +3,14 @@ import React from "react";
 import "./NewsViewCard.css";
 import Image from "next/image";
 
-function TargetView() {
+function TargetView({ title, section }) {
   return (
     <article className="news-view-card">
       <a href="">
         <div className="news-view-card-info">
-          <span className="news-view-card-title">Titulo noticia - Sección</span>
+          <span className="news-view-card-title">
+            {title} - {section}
+          </span>
         </div>
       </a>
       <aside>
