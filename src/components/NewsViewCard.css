@@ -5,12 +5,18 @@
     justify-content: center;
     width: 100%;
     margin: 15px;
+
 }
 
 .news-view-card-info {
     background-color: #D9D9D9;
     border-radius: 10px;
     padding: 10px 0px;
+    width: 100%;
+}
+
+.news-view-card-info:hover {
+    background-color: #a9a9a9;
 }
 
 .news-view-card-title {
@@ -36,6 +42,29 @@
     border-radius: 5px;
     padding: 2px;
     background-color: #EF5050;
+}
+
+.news-view-card-delete:hover {
+    background-color: #bd3e3e;
+}
+
+.news-view-card-delete:active {
+    background-color: #a33a3a;
+}
+
+.news-view-card-edit:hover {
+    background-color: #4e9e7e;
+}
+
+.news-view-card-edit:active {
+    background-color: #3e7e5b;
+}
+
+.news-view-card aside button {
+    border: 0;
+    border-radius: 5px;
+    padding: 2px;
+    cursor: pointer;
 }
 
 

@@ -1,7 +1,9 @@
+"use client";
 import "./viewNews.css";
 import HeaderInside from "@/components/header";
 import MenuInside from "@/components/menuInside";
 import TargetView from "@/components/TargetView";
+import dynamic from "next/dynamic";
 
 async function fetchNews() {
   const res = await fetch("http://localhost:5000/noticias");
@@ -11,7 +13,6 @@ async function fetchNews() {
 
 async function InsidePage() {
   const news = await fetchNews();
-  console.log(news);
 
   return (
     <>
@@ -22,9 +23,10 @@ async function InsidePage() {
           {news.map((item) => {
             return (
               <TargetView
-                key={item.id}
+                key={item._id}
                 title={item.tituloNoticia}
                 section={item.tipoNoticia}
+                id={item._id}
               />
             );
           })}
@@ -33,5 +35,4 @@ async function InsidePage() {
     </>
   );
 }
-
-export default InsidePage;
+export default dynamic(() => Promise.resolve(InsidePage), { ssr: false });
