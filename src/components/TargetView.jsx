@@ -4,6 +4,17 @@ import Link from "next/link";
 import "./NewsViewCard.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+
+//delete api
+const deleteNews = async (id) => {
+  try {
+    const res = await axios.delete(`http://localhost:5000/noticias/${id}`);
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 function TargetView({ title, section, id }) {
   const router = useRouter();
@@ -35,7 +46,14 @@ function TargetView({ title, section, id }) {
             alt="incono"
           />
         </button>
-        <button>
+        <button
+          onClick={() => {
+            if (window.confirm(`Seguro de eliminar la noticia ${title}?`)) {
+              deleteNews(id);
+              router.push("/viewNews/");
+            }
+          }}
+        >
           <Image
             className="news-view-card-delete"
             src="/delete_icon.png"
