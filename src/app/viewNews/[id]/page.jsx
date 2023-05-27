@@ -1,21 +1,33 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 "use client";
-import React from "react";
 import "../../upload/styles.css";
-import { useParams } from "next/navigation";
 import HeaderInside from "@/components/header";
 import MenuInside from "@/components/menuInside";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
-async function fetchNew(id) {
-  const res = await fetch(`http://localhost:5000/noticias/${id}`);
-  const data = await res.json();
-  return data;
-}
+function EditPage() {
+  const params = useParams();
 
-async function UploadPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/noticias/${params.id}`).then((res) => {
+      console.log(res.data);
+      setValues({
+        tituloNoticia: res.data.tituloNoticia,
+        tipoNoticia: res.data.tipoNoticia,
+        fechaPub: res.data.fechaPub,
+        autor: res.data.autor,
+        parrafoPrincipal: res.data.parrafoPrincipal,
+        contenidoNoticia: res.data.contenidoNoticia,
+        image: res.data.image,
+      });
+    });
+  }, [params.id]);
+
   const [values, setValues] = useState({
     tituloNoticia: "",
     tipoNoticia: "",
@@ -26,21 +38,29 @@ async function UploadPage() {
     image: "",
   });
 
-  const params = useParams();
-  const user = await fetchNew(params.id);
-  console.log(user);
-
-  //update api
   const updateNew = async (id, values) => {
-    const res = await fetch(`http://localhost:5000/noticias/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(values),
+    axios
+      .put(`http://localhost:5000/noticias/${id}`, values, {
+        headers: {
+          "Content-type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(`Success` + res.data);
+        router.push("/viewNews");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleInputFile = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    setValues({
+      ...values,
+      image: file,
     });
-    const data = await res.json();
-    console.log(data);
   };
 
   const handleInputChange = (e) => {
@@ -71,8 +91,8 @@ async function UploadPage() {
               name="tituloNoticia"
               type="text"
               required
-              value={user.tituloNoticia}
               id="titulo"
+              defaultValue={values.tituloNoticia}
               onChange={handleInputChange}
             />
           </div>
@@ -80,10 +100,11 @@ async function UploadPage() {
           <div className="group-categoria">
             <label htmlFor="selectcategoria">Categoria</label>
             <select
-              value={user.tipoNoticia}
               name="tipoNoticia"
               onChange={handleInputChange}
               id="selectcategoria"
+              required
+              defaultValue={values.tipoNoticia}
             >
               <option value="Locales">Locales</option>
               <option value="Deportes">Deportes</option>
@@ -95,7 +116,6 @@ async function UploadPage() {
           <div className="group-fecha">
             <label htmlFor="fecha">Fecha de publicación</label>
             <input
-              value={user.fechaPub}
               name="fechaPub"
               type="date"
               id="fecha"
@@ -103,55 +123,56 @@ async function UploadPage() {
               min="2018-01-01"
               max="2026-12-31"
               onChange={handleInputChange}
+              defaultValue={values.fechaPub}
             />
           </div>
 
           <div className="group-autor">
             <label htmlFor="autor">Autor</label>
             <input
-              value={user.autor}
               name="autor"
               required
               type="text"
               id="autor"
               onChange={handleInputChange}
+              defaultValue={values.autor}
             />
           </div>
 
           <div className="group-principal">
             <label htmlFor="principal">Parrafo Principal</label>
             <textarea
-              value={user.parrafoPrincipal}
               name="parrafoPrincipal"
               required
               type="text"
               id="principal"
               onChange={handleInputChange}
+              defaultValue={values.parrafoPrincipal}
             ></textarea>
           </div>
 
           <div className="group-secundario">
             <label htmlFor="secundario">Parrafo secundario</label>
             <textarea
-              value={user.contenidoNoticia}
               name="contenidoNoticia"
               required
               type="text"
               id="secundario"
               onChange={handleInputChange}
+              defaultValue={values.contenidoNoticia}
             ></textarea>
           </div>
 
           <div className="bottom-group">
             <div className="group-img">
-              <label htmlFor="images" className="drop-container">
+              <label htmlFor="image" className="drop-container">
                 <input
                   name="image"
                   required
                   type="file"
-                  id="images"
+                  id="image"
                   accept="image/png, image/jpeg"
-                  onChange={handleInputChange}
+                  onChange={handleInputFile}
                 />
               </label>
             </div>
@@ -170,4 +191,4 @@ async function UploadPage() {
   );
 }
 
-export default dynamic(() => Promise.resolve(UploadPage), { ssr: false });
+export default dynamic(() => Promise.resolve(EditPage), { ssr: false });
