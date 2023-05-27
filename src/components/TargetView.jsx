@@ -9,20 +9,24 @@ function TargetView({ title, section, id }) {
   const router = useRouter();
 
   return (
-    <article
-      className="news-view-card"
-      onClick={() => {
-        router.push(`/viewNews/${id}`);
-      }}
-    >
-      <div className="news-view-card-info">
+    <article className="news-view-card">
+      <div
+        className="news-view-card-info"
+        onClick={() => {
+          router.push(`/viewNews/${id}`);
+        }}
+      >
         <span className="news-view-card-title">
           {title} - {section}
         </span>
       </div>
 
       <aside>
-        <button>
+        <button
+          onClick={() => {
+            router.push(`/viewNews/${id}`);
+          }}
+        >
           <Image
             className="news-view-card-edit"
             src="/edit_icon.png"

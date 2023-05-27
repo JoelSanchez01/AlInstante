@@ -5,8 +5,10 @@ import HeaderInside from "@/components/header";
 import MenuInside from "@/components/menuInside";
 import { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 function UploadPage() {
+  const router = useRouter();
   const [values, setValues] = useState({
     tituloNoticia: "",
     tipoNoticia: "",
@@ -19,16 +21,6 @@ function UploadPage() {
 
   //post api
   const postApi = async () => {
-    // const url = "http://localhost:5000/noticias";
-    // const res = await fetch(url, {
-    //   method: "POST",
-    //   body: JSON.stringify(values),
-    //   headers: {
-    //     "Content-Type": "multipart/form-data,  boundary=boundary_value",
-    //   },
-    // });
-    // const data = await res.json();
-    // console.log(data);
     axios
       .post("http://localhost:5000/noticias", values, {
         headers: {
@@ -37,6 +29,7 @@ function UploadPage() {
       })
       .then((res) => {
         console.log(`Success` + res.data);
+        router.push("/viewNews");
       })
       .catch((err) => {
         console.log(err);
@@ -160,9 +153,9 @@ function UploadPage() {
             </div>
             <button
               type="submit"
-              // onClick={() => {
-              //   postApi();
-              // }}
+              onClick={() => {
+                postApi();
+              }}
             >
               Subir
             </button>
