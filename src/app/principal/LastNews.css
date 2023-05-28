@@ -1,0 +1,24 @@
+.tarjeta {
+    padding-bottom: 5%;
+    width: 80%;
+    background-color: #ffffff;
+}
+
+.tarjeta a {
+    text-decoration: none;
+    color: #16161d;
+    transition: all .3s;
+}
+
+.tarjeta a:hover {
+    color: #58be7d;
+}
+
+.tarjeta img {
+    width: 100%;
+}
+
+.tarjeta p {
+    font-weight: lighter;
+    text-align: justify;
+}
