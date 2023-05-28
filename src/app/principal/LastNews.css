@@ -1,7 +1,7 @@
 .tarjeta {
-    padding-bottom: 5%;
-    width: 80%;
+    width: 40%;
     background-color: #ffffff;
+    margin: 20px;
 }
 
 .tarjeta a {
@@ -16,6 +16,8 @@
 
 .tarjeta img {
     width: 100%;
+    max-height: 150px;
+    overflow: hidden;
 }
 
 .tarjeta p {

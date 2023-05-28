@@ -1,9 +1,19 @@
 .article {
     width: 100%;
     padding-bottom: 10%;
+
 }
 
-h2{
+.body-espectaculos a {
+    text-decoration: none;
+    color: #161616;
+}
+
+.body-espectaculos a:hover {
+    color: #58be7d;
+}
+
+h2 {
     font-size: 20px;
     color: #161616;
 }
@@ -11,16 +21,31 @@ h2{
 h2:hover {
     color: #58be7d;
 }
-.autor{
+
+.autor {
     color: #161616;
 }
-.fecha{
+
+.fecha {
     color: #cbcbcb;
 }
-.article .target-new{
+
+.article .target-new {
     display: flex;
 }
-.article .target-new img {
-    width: 40%;
-    margin-right: 25px;   
+
+.seccion-3 article {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.seccion-3 h2 {
+    font-size: 16px;
+}
+
+
+.seccion-3 .article .target-new img {
+    width: 35%;
+    height: 100%;
+    margin-right: 25px;
 }

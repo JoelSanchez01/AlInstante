@@ -1,19 +1,20 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import "./TargetNew3.css";
+import Link from "next/link";
 
-function TargetNew3({ title, date, image, autor }) {
+function TargetNew3({ id, title, date, image, autor }) {
   return (
     <div className="article">
-      <article class="target-new">
+      <article className="target-new">
         <img className="image" src={image} />
         <div className="contenido">
           <h2>
-            <a target="_blank" href="#">
-              {title}
-            </a>
+            <Link href={`/${id}`}>{title}</Link>
           </h2>
-          <p class="autor">{autor}</p>
-          <p class="fecha">{date}</p>
+          <p className="autor">{autor}</p>
+          <p className="fecha">{date}</p>
         </div>
       </article>
     </div>

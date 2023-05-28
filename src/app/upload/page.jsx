@@ -85,7 +85,6 @@ function UploadPage() {
               onChange={handleInputChange}
               id="selectcategoria"
             >
-              <option value="Locales">Locales</option>
               <option value="Deportes">Deportes</option>
               <option value="Musica">Musica</option>
               <option value="Espectaculos">Espectaculos</option>

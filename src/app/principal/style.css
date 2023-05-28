@@ -212,19 +212,20 @@ footer {
 
 /*Seccion de espectaculos*/
 .seccion-1 {
-  width: 40%;
+  width: 33%;
 }
 
 .seccion-2 {
-  width: 30%;
+  width: 33%;
 }
 
 .seccion-3 {
-  width: 20%;
+  width: 33%;
 }
 
 .body-espectaculos {
   display: flex;
+  justify-content: center;
 }
 
 /*Seccion de ultimas noticias*/
@@ -234,8 +235,9 @@ footer {
 }
 
 .contenedor {
-  padding-left: 25px;
+
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 

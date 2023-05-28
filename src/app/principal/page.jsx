@@ -9,7 +9,22 @@ import TargetNew3 from "./TargetNew3";
 import LastNews from "./LastNews";
 import SideNews from "./SideNews";
 
-function PeriodicoPage() {
+// fetch data from API
+async function getNews() {
+  const res = await fetch("http://localhost:5000/noticias");
+  const json = await res.json();
+  return json;
+}
+
+async function PeriodicoPage() {
+  const news = await getNews();
+  const deportes = news.filter((noticia) => noticia.tipoNoticia === "Deportes");
+
+  const espectaculos = news.filter(
+    (noticia) => noticia.tipoNoticia === "Espectaculos"
+  );
+  const musica = news.filter((noticia) => noticia.tipoNoticia === "Musica");
+  console.log(musica);
   return (
     <div>
       <header>
@@ -65,18 +80,50 @@ function PeriodicoPage() {
 
       <div className="body-espectaculos">
         <div className="seccion-1">
-          <TargetNew />
+          <TargetNew
+            id={musica[0]._id}
+            title={musica[0].tituloNoticia}
+            date={musica[0].fechaPub}
+            image={musica[0].image.secure_url}
+            contentPrincipal={musica[0].parrafoPrincipal}
+            autor={musica[0].autor}
+          />
         </div>
 
         <div className="seccion-2">
-          <TargetNew2 />
-          <TargetNew2 />
+          <TargetNew2
+            title={musica[1].tituloNoticia}
+            date={musica[1].fechaPub}
+            image={musica[1].image.secure_url}
+            autor={musica[1].autor}
+          />
+          <TargetNew2
+            title={musica[2].tituloNoticia}
+            date={musica[2].fechaPub}
+            image={musica[2].image.secure_url}
+            autor={musica[2].autor}
+          />
         </div>
 
         <div className="seccion-3">
-          <TargetNew3 />
-          <TargetNew3 />
-          <TargetNew3 />
+          <TargetNew3
+            title={musica[3].tituloNoticia}
+            date={musica[3].fechaPub}
+            image={musica[3].image.secure_url}
+            autor={musica[3].autor}
+          />
+          <TargetNew3
+            title={musica[4].tituloNoticia}
+            date={musica[4].fechaPub}
+            image={musica[4].image.secure_url}
+            autor={musica[4].autor}
+          />
+          <TargetNew3
+            title={musica[5].tituloNoticia}
+            date={musica[5].fechaPub}
+            image={musica[5].image.secure_url}
+            autor={musica[5].autor}
+          />
         </div>
       </div>
 
@@ -87,12 +134,16 @@ function PeriodicoPage() {
           <br></br>
 
           <div className="contenedor">
-            <LastNews />
-            <LastNews />
-          </div>
-          <div className="contenedor">
-            <LastNews />
-            <LastNews />
+            {espectaculos.map((noticia) => (
+              <LastNews
+                key={noticia._id}
+                title={noticia.tituloNoticia}
+                date={noticia.fechaPub}
+                image={noticia.image.secure_url}
+                autor={noticia.autor}
+                contentPrincipal={noticia.parrafoPrincipal}
+              />
+            ))}
           </div>
         </div>
 
@@ -100,10 +151,15 @@ function PeriodicoPage() {
           <p id="titulo">Deportes</p>
           <hr></hr>
           <br></br>
-
-          <SideNews />
-          <SideNews />
-          <SideNews />
+          {deportes.map((noticia, index) => (
+            <SideNews
+              key={noticia._id}
+              title={noticia.tituloNoticia}
+              date={noticia.fechaPub}
+              contentPrincipal={noticia.parrafoPrincipal}
+              number={index + 1}
+            />
+          ))}
         </div>
       </div>
 

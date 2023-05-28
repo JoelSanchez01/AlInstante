@@ -1,7 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import "./TargetNew.css";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-function TargetNew({ title, date, image, contentPrincipal, autor }) {
+function TargetNew({ id, title, date, image, contentPrincipal, autor }) {
   return (
     <div className="tabla">
       <div className="fila">
@@ -9,11 +12,9 @@ function TargetNew({ title, date, image, contentPrincipal, autor }) {
           <article className="one">
             <img src={image} alt="" />
             <h2>
-              <a target="_blank" href="#">
-                {title}
-              </a>
+              <Link href={`/${id}`}>{title}</Link>
             </h2>
-            <p className="text">{contentPrincipal}</p>
+
             <p className="autor">{autor}</p>
             <p className="fecha">{date}</p>
           </article>
