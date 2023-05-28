@@ -1,4 +1,4 @@
-body{
+body {
     font-family: -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -10,8 +10,9 @@ body{
         "Fira Sans",
         "Droid Sans",
         "Helvetica Neue",
-        sans-serif;      
+        sans-serif;
 }
+
 .side-news {
     width: 100%;
     background-color: white;
@@ -23,18 +24,19 @@ body{
     margin-right: 20Px;
 }
 
-.side-news hr, h2{
+.side-news hr,
+h2 {
     margin-bottom: 10px;
 }
 
 .side-news a {
     text-decoration: none;
-    color:#16161d;
+    color: #16161d;
     transition: all .3s;
 }
 
-.side-news a:hover{
-    color:#58be7d;
+.side-news a:hover {
+    color: #58be7d;
 }
 
 .side-news .lista .elemento {
@@ -48,10 +50,12 @@ body{
 .side-news .lista .elemento .fecha {
     color: #cbcbcb;
 }
-.texto{
+
+.texto {
     color: #16161d;
     text-align: justify;
 }
+
 .body {
     display: flex;
 }

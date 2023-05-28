@@ -68,6 +68,7 @@ header ul li a:hover {
   color: #58be7d;
   font-size: 1.1em;
 }
+
 /*Fin de Header*/
 
 /* Footer */
@@ -198,50 +199,56 @@ footer {
   background-color: #e9f4f5;
   border: 2px solid #58be7d;
 }
+
 /*Fin de portada*/
 
 /*Titulos*/
 #titulo {
-    color: #16161d;
-    text-decoration: none;
-    font-size: 1.5em;
-    margin-right: 35%;
+  color: #16161d;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin-right: 35%;
 }
 
 /*Seccion de espectaculos*/
-.seccion-1{
-    width: 40%;
+.seccion-1 {
+  width: 40%;
 }
-.seccion-2{
-    width: 30%;
+
+.seccion-2 {
+  width: 30%;
 }
-.seccion-3{
-    width: 20%;
+
+.seccion-3 {
+  width: 20%;
 }
-.body-espectaculos{
-    display: flex;
+
+.body-espectaculos {
+  display: flex;
 }
 
 /*Seccion de ultimas noticias*/
-.seccion-ult{
-    width: 60%;
-    
-}
-.contenedor{
-    padding-left: 25px;
-    display: flex;
-    justify-content: center;
+.seccion-ult {
+  width: 60%;
+
 }
 
-.seccion-top{
-    width: 30%;
-    margin-left: 20px;
+.contenedor {
+  padding-left: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.seccion-top {
+  width: 30%;
+  margin-left: 20px;
 }
 
 .body {
-    display: flex;
-    padding-top: 5%;
+  display: flex;
+  padding-top: 5%;
 }
+
 .lista a {
   transition: all 0.3s;
 }
