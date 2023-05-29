@@ -1,0 +1,30 @@
+.body .noticia {
+    padding: 30px;
+    width: 70%;
+}
+
+.body .noticia h3 {
+    font-weight: 100;
+    font-size: 36px;
+    color: #828282;
+}
+
+.body .noticia h2 {
+    font-size: 30px;
+}
+
+.body .noticia img {
+    margin: 20px 0 10px;
+    width: 100%;
+}
+
+.noticia #espacioautor {
+    margin-bottom: 10px;
+}
+
+.body .noticia .autor-date {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    color: #828282;
+}

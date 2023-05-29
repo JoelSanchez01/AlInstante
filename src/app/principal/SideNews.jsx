@@ -1,7 +1,8 @@
 import React from "react";
 import "./SideNews.css";
+import Link from "next/link";
 
-function SideNews({ title, date, contentPrincipal, number }) {
+function SideNews({ id, title, date, contentPrincipal, number }) {
   return (
     <div>
       <div className="side-news">
@@ -12,9 +13,7 @@ function SideNews({ title, date, contentPrincipal, number }) {
             </div>
             <div className="contenido">
               <h4 className="titulo">
-                <a target="_blank" href="#">
-                  {title}
-                </a>
+                <Link href={`/${id}`}>{title}</Link>;
               </h4>
               <p className="texto">{contentPrincipal}</p>
               <p className="fecha">{date}</p>

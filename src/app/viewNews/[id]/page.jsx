@@ -15,7 +15,6 @@ function EditPage() {
 
   useEffect(() => {
     axios.get(`http://localhost:5000/noticias/${params.id}`).then((res) => {
-      console.log(res.data);
       setValues({
         tituloNoticia: res.data.tituloNoticia,
         tipoNoticia: res.data.tipoNoticia,
@@ -56,7 +55,7 @@ function EditPage() {
 
   const handleInputFile = (e) => {
     const file = e.target.files[0];
-    console.log(file);
+
     setValues({
       ...values,
       image: file,

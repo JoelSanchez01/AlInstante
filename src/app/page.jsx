@@ -8,10 +8,14 @@ import TargetNew2 from "./principal/TargetNew2";
 import TargetNew3 from "./principal/TargetNew3";
 import LastNews from "./principal/LastNews";
 import SideNews from "./principal/SideNews";
+import HeaderMain from "@/components/HeaderMain";
+import FooterMain from "@/components/FooterMain";
 
 // fetch data from API
 async function getNews() {
-  const res = await fetch("http://localhost:5000/noticias");
+  const res = await fetch("http://localhost:5000/noticias", {
+    cache: "reload",
+  });
   const json = await res.json();
   return json;
 }
@@ -24,34 +28,10 @@ async function PeriodicoPage() {
     (noticia) => noticia.tipoNoticia === "Espectaculos"
   );
   const musica = news.filter((noticia) => noticia.tipoNoticia === "Musica");
-  console.log(musica);
+
   return (
     <div>
-      <header>
-        <Image src="/logo.png" width={50} height={50} alt="logo" />
-        <a href="#" className="nombre">
-          Al Instante
-        </a>
-        <div className="grupo">
-          <ul className="navegation">
-            <li>
-              <a href="#">Principal</a>
-            </li>
-            <li>
-              <a href="#">Noticias</a>
-            </li>
-            <li>
-              <a href="#">Sociales</a>
-            </li>
-            <li>
-              <a href="#">Espectaculos</a>
-            </li>
-            <li>
-              <a href="#">Música</a>
-            </li>
-          </ul>
-        </div>
-      </header>
+      <HeaderMain />
 
       <div className="portada">
         <div className="presentation" id="principal">
@@ -141,6 +121,7 @@ async function PeriodicoPage() {
           <div className="contenedor">
             {espectaculos.map((noticia) => (
               <LastNews
+                id={noticia._id}
                 key={noticia._id}
                 title={noticia.tituloNoticia}
                 date={noticia.fechaPub}
@@ -159,6 +140,7 @@ async function PeriodicoPage() {
           {deportes.map((noticia, index) => (
             <SideNews
               key={noticia._id}
+              id={noticia._id}
               title={noticia.tituloNoticia}
               date={noticia.fechaPub}
               contentPrincipal={noticia.parrafoPrincipal}
@@ -168,39 +150,7 @@ async function PeriodicoPage() {
         </div>
       </div>
 
-      <footer>
-        <section className="footer">
-          <div className="social">
-            <a href="#">
-              <Image src="./facebook.svg" width={20} height={20} alt="" />
-            </a>
-            <a href="#">
-              <Image src="./instagram.svg" width={20} height={20} alt="" />
-            </a>
-            <a href="#">
-              <Image src="./twitter.svg" width={20} height={20} alt="" />
-            </a>
-            <a href="#">
-              <Image src="./tiktok.svg" width={20} height={20} alt="" />
-            </a>
-          </div>
-          <ul className="lista">
-            <li>
-              <a href="">Principal</a>
-            </li>
-            <li>
-              <a href="">Noticias</a>
-            </li>
-            <li>
-              <a href="">Espectaculos</a>
-            </li>
-            <li>
-              <a href="">Música</a>
-            </li>
-          </ul>
-          <p className="copyright">Al Instante @2023</p>
-        </section>
-      </footer>
+      <FooterMain />
     </div>
   );
 }

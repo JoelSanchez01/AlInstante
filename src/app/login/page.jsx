@@ -44,7 +44,6 @@ export default function Home() {
 
   const handleForm = (e) => {
     e.preventDefault();
-    console.log(values);
   };
 
   return (
