@@ -1,10 +1,10 @@
-import app from './app.js'
-import { connectToDB } from './utils/mongoose.js';
+import app from "./app.js";
+import { connectToDB } from "./utils/mongoose.js";
 
 async function main() {
-  await connectToDB()
-  app.listen(3000);
-  console.log('Serber running on port', 3000)
+  await connectToDB();
+  app.listen(5000);
+  console.log("Serber running on port", 5000);
 }
 
-main()
+main();
