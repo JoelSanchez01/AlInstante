@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import {MONGO} from '../config.js'
 
 export async function connectToDB() {
   try {
